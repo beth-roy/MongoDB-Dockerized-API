@@ -11,12 +11,7 @@ const router = express.Router();
         await usersController.getUsers(req,res)
       });
 
-module.exports = router;
-      
-      
-      
-
-module.exports = router;
+module.exports = router;    
 
 
 

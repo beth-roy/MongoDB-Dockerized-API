@@ -15,7 +15,6 @@ const startMongoContainer = async () =>{
 
 const containerStatus =  async () =>{
 const containers = await docker.listContainers({ all: true });
-        console.log("yoo",containers)
         const mongoContainer = containers.find(
           (c) => c.Image === 'mongo',
         );

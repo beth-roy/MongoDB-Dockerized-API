@@ -1,7 +1,11 @@
-const express = require('express');
-const app = express();
+
 const containerroutes = require('./routes/containers.route');
 const usersroutes = require('./routes/users.route');
+const express = require('express');
+const dotenv = require('dotenv');
+dotenv.config();
+const app = express();
+
 app.use(express.json());
 app.use('/mongo',containerroutes)
 app.use('/users',usersroutes)
