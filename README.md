@@ -24,9 +24,9 @@ This will start the server on http://localhost:3000.
 ### API Endpoints
 The following endpoints are available:
 
-GET /mongo/start: Start the MongoDB container.
-GET /mongo/stop: Stop the MongoDB container.
-GET /mongo/status: Get the status of the MongoDB container.
-GET /users: Get all users from the users collection in MongoDB.
-POST /users: Add a new user to the users collection in MongoDB.
+GET /mongo/start: Start the MongoDB container. \
+GET /mongo/stop: Stop the MongoDB container. \
+GET /mongo/status: Get the status of the MongoDB container. \
+GET /users/retrieve: Get all users from the users collection in MongoDB. \
+POST /users/add: Add a new user to the users collection in MongoDB. \
 Note: The /mongo/start, /mongo/stop, and /mongo/status endpoints require Docker to be installed and running on your machine.
