@@ -1,8 +1,7 @@
 const Docker = require('dockerode');
-
 const docker = new Docker();
 
-async function startMongoContainer() {
+const startMongoContainer = async () =>{
   const container = await docker.createContainer({
     Image: 'mongo',
     name: 'mongo',
@@ -13,8 +12,8 @@ async function startMongoContainer() {
 
   await container.start();
 }
-async function containerStatus() {
 
+const containerStatus =  async () =>{
 const containers = await docker.listContainers({ all: true });
         console.log("yoo",containers)
         const mongoContainer = containers.find(
@@ -22,19 +21,16 @@ const containers = await docker.listContainers({ all: true });
         );
         return mongoContainer;
 }
-async function stopContainer() {
-
-const container = docker.getContainer('mongo');
-        await container.stop();
+const stopContainer =async () => {
+    const container = docker.getContainer('mongo');
+    await container.stop();
 }
 
-async function ensureMongoContainerRunning() {
+const ensureMongoContainerRunning = async () => {
   const containers = await docker.listContainers({ all: true });
-  console.log("yoo",containers)
   const mongoContainer = containers.find(
     (c) => c.Image === 'mongo',
   );
-
   if (!mongoContainer) {
     await startMongoContainer();
     console.log('Mongo container started!');
