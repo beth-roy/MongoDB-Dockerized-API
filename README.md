@@ -19,7 +19,7 @@ dockerode
 ### Running the application
 To start the server, run the following command:
 node index.js
-This will start the server on http://localhost:3000.
+This will start the server on http://localhost:8000.
 
 ### API Endpoints
 The following endpoints are available:

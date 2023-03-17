@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb');
 const { ensureMongoContainerRunning } = require('../controllers/containers.controller');
-
-
+ 
+// Function to connect to the database
 const connectToMongoDb = async ()=> {
   const mongoUrl = `mongodb://admin:secret@${process.env.mongoHost}:${process.env.mongoPort}`;
   const client = new MongoClient(mongoUrl, { useUnifiedTopology: true });
@@ -9,7 +9,7 @@ const connectToMongoDb = async ()=> {
   const db = client.db(process.env.mongoDbName);
   return db;
 }
-
+//Function to get all user data from the database
 const getUsers = async(req, res) =>{
   await ensureMongoContainerRunning();
   const db = await connectToMongoDb();
@@ -25,7 +25,7 @@ const getUsers = async(req, res) =>{
   console.log(users)
   res.json(users);
 }
-
+//Function to add a new user
  const addUser = async (req, res)  => {
   const { username, password } = req.body;
   if (!username || !password) {

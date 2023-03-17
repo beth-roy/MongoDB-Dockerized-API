@@ -1,6 +1,7 @@
 const Docker = require('dockerode');
 const docker = new Docker();
 
+//Function to start a container
 const startMongoContainer = async () =>{
   const container = await docker.createContainer({
     Image: 'mongo',
@@ -13,6 +14,7 @@ const startMongoContainer = async () =>{
   await container.start();
 }
 
+//Function to check status of a container
 const containerStatus =  async () =>{
 const containers = await docker.listContainers({ all: true });
         const mongoContainer = containers.find(
@@ -20,11 +22,14 @@ const containers = await docker.listContainers({ all: true });
         );
         return mongoContainer;
 }
+
+//Function to stop a container
 const stopContainer =async () => {
     const container = docker.getContainer('mongo');
     await container.stop();
 }
 
+//Function to check if container isn't started trigger a start
 const ensureMongoContainerRunning = async () => {
   const containers = await docker.listContainers({ all: true });
   const mongoContainer = containers.find(
