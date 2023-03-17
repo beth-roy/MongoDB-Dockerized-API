@@ -5,11 +5,7 @@ const { ensureMongoContainerRunning } = require('../controllers/containers.contr
 const connectToMongoDb = async () => {
   const mongoUrl = `mongodb://admin:secret@${process.env.mongoHost}:${process.env.mongoPort}/?directConnection=true`;
   const client = new MongoClient(mongoUrl, { useUnifiedTopology: true });
-  console.log("Reachd here")
-
   await client.connect();
-  console.log("Reachd next")
-
   const db = client.db(process.env.mongoDbName);
   return db;
 }

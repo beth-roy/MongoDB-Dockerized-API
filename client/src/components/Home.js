@@ -8,6 +8,7 @@ export default function Home() {
   return <div>
     <Navbar /><br/>
     <Status></Status><br/>
-    <User />
+    {/* <User />
+    <UserDisplay /> */}
   </div>;
 }
